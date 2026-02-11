@@ -15,4 +15,9 @@ def filter_by_sensitive_port(lst:list):
     list_filtered_by_sensitive_port=[l for l in lst if "RDP"==l[-2] or l[-2]=="SSH" or l[-2]=="Telnet"]
     return list_filtered_by_sensitive_port
 
+def filter_by_size(lst:list):
+    list_filter_by_size=list(filter(lambda l:int(l[-1])>5000,lst))
+    return list_filter_by_size
+
+
 
