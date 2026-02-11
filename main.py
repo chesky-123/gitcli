@@ -11,5 +11,8 @@ def extracting_external_IP_addresses(lst:list):
     return list_external_addresses
 
 
+def filter_by_sensitive_port(lst:list):
+    list_filtered_by_sensitive_port=[l for l in lst if "RDP"==l[-2] or l[-2]=="SSH" or l[-2]=="Telnet"]
+    return list_filtered_by_sensitive_port
 
 
