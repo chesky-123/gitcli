@@ -6,9 +6,9 @@ def get_list_of_file(path):
     return list_of_lines
 
 
-
-
-
+def extracting_external_IP_addresses(lst:list):
+    list_external_addresses=[l for l in lst if not l[1].startswith("192.168") if not l[1].startswith("10.")]
+    return list_external_addresses
 
 
 
