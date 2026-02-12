@@ -1,0 +1,49 @@
+Index: config.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from main import *\r\n\r\ndef counting_calls_by_IP(lst:list):\r\n    ips=[ip[1] for ip in lst]\r\n    data={ip:ips.count(ip) for ip in ips}\r\n    return data\r\n\r\ndef port_to_protocol_mapping(lst:list):\r\n    data={line[3]:line[4] for line in lst}\r\n    return data\r\n\r\ndef filter_by_time(lst:list):\r\n    return [row for row in lst if \"00:00:00\"<= row[0][11:19] <= \"00:06:00\"]\r\n\r\ndef suspicion_detection_for_each_IP(lst:list):\r\n    data={}\r\n    for line in lst:\r\n        if line[1] not in data:\r\n            data[line[1]]=[]\r\n        if line[1] in extracting_external_IP_addresses(lst) and \"IP_EXTERNAL\" not in data[line[1]]:\r\n            data[line[1]].append(\"IP_EXTERNAL\")\r\n        if line in filter_by_sensitive_port(lst) and \"PORT_SENSITIVE\" not in data[line[1]]:\r\n            data[line[1]].append(\"PORT_SENSITIVE\")\r\n        if line in filter_by_size(lst) and \"PACKET_LARGE\" not in data[line[1]]:\r\n            data[line[1]].append(\"PACKET_LARGE\")\r\n        if line in filter_by_time(lst) and \"ACTIVITY_NIGHT\" not in data[line[1]]:\r\n            data[line[1]].append(\"ACTIVITY_NIGHT\")\r\n    return data\r\n\r\ndef filtering_the_suspicion_dict(dicti:dict):\r\n    filter_dict = {key:dicti[key] for key in dicti if len(dicti[key])>=2}\r\n    return filter_dict\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/config.py b/config.py
+--- a/config.py	(revision 62ca4dd1fc645f5980f2f72d3cbbe8bd09ff860c)
++++ b/config.py	(date 1770898906801)
+@@ -33,3 +33,38 @@
+ 
+ 
+ 
++from main import *
++
++def counting_calls_by_IP(lst:list):
++    ips=[ip[1] for ip in lst]
++    data={ip:ips.count(ip) for ip in ips}
++    return data
++
++def port_to_protocol_mapping(lst:list):
++    data={line[3]:line[4] for line in lst}
++    return data
++
++def filter_by_time(lst:list):
++    return [row for row in lst if "00:00:00"<= row[0][11:19] <= "00:06:00"]
++
++def suspicion_detection_for_each_IP(lst:list):
++    data={}
++    for line in lst:
++        if line[1] not in data:
++            data[line[1]]=[]
++        if line[1] in extracting_external_IP_addresses(lst) and "IP_EXTERNAL" not in data[line[1]]:
++            data[line[1]].append("IP_EXTERNAL")
++        if line in filter_by_sensitive_port(lst) and "PORT_SENSITIVE" not in data[line[1]]:
++            data[line[1]].append("PORT_SENSITIVE")
++        if line in filter_by_size(lst) and "PACKET_LARGE" not in data[line[1]]:
++            data[line[1]].append("PACKET_LARGE")
++        if line in filter_by_time(lst) and "ACTIVITY_NIGHT" not in data[line[1]]:
++            data[line[1]].append("ACTIVITY_NIGHT")
++    return data
++
++def filtering_the_suspicion_dict(dicti:dict):
++    filter_dict = {key:dicti[key] for key in dicti if len(dicti[key])>=2}
++    return filter_dict
++
++
++
