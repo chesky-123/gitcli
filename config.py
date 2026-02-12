@@ -8,5 +8,10 @@ def counting_calls_by_IP(lst:list):
         data[line[1]]+=1
     return data
 
+def port_to_protocol_mapping(lst:list):
+    data={line[3]:line[4] for line in lst}
+    return data
+
+
 
 
