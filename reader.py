@@ -10,4 +10,8 @@ filter_rows_by_port=list(filter(lambda line:line[3]=="22" or line[3]=="23" or li
 
 nighttime_activity_filtering=list(filter(lambda n:"00:00:00"<= n[0][11:19] <= "00:06:00",list_of_pys))
 
+suspicion_checks = { "EXTERNAL_IP": lambda row: True if not row[1].strip().startswith("192.168") and not row[1].strip().startswith("10.") else False,
+                    "SENSITIVE_PORT": lambda row: True if row[3]=="22" or row[3]=="23" or row[3]=="3389" else False,
+                     "LARGE_PACKET":lambda row: True if int(row[-1])>5000 else False,
+                     "NIGHT_ACTIVITY": lambda row: True if "00:00:00"<= row[0][11:19] <= "00:06:00" else False}
 
