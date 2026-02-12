@@ -6,7 +6,7 @@ def get_list_of_file(path):
 
 
 def extracting_external_IP_addresses(lst:list):
-    list_external_addresses=[l for l in lst if not l[1].strip().startswith("192.168") and not l[1].strip().startswith("10.")]
+    list_external_addresses=[l[1] for l in lst if not l[1].strip().startswith("192.168") and not l[1].strip().startswith("10.")]
     return list_external_addresses
 
 
