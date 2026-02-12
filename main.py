@@ -1,4 +1,3 @@
-from pathlib import Path
 
 def get_list_of_file(path):
     with open(path,'r') as file:
