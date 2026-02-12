@@ -1,11 +1,8 @@
 from main import *
 
 def counting_calls_by_IP(lst:list):
-    data={}
-    for line in lst:
-        if line[1] not in data:
-            data[line[1]]=0
-        data[line[1]]+=1
+    ips=[ip[1] for ip in lst]
+    data={ip:ips.count(ip) for ip in ips}
     return data
 
 def port_to_protocol_mapping(lst:list):
@@ -29,6 +26,10 @@ def suspicion_detection_for_each_IP(lst:list):
         if line in filter_by_time(lst) and "ACTIVITY_NIGHT" not in data[line[1]]:
             data[line[1]].append("ACTIVITY_NIGHT")
     return data
+
+def filtering_the_suspicion_dict(dicti:dict):
+    filter_dict = {key:dicti[key] for key in dicti if len(dicti[key])>=2}
+    return filter_dict
 
 
 
