@@ -1,6 +1,6 @@
 from config import *
 
-list_of_pys=get_list_of_file("network_traffic.log")
+listi=list_of_pys=get_list_of_file("network_traffic.log")
 
 get_the_hour=list(map(lambda time:int(time[0][11:13]), list_of_pys))
 
@@ -15,3 +15,6 @@ suspicion_checks = { "EXTERNAL_IP": lambda row: True if not row[1].strip().start
                      "LARGE_PACKET":lambda row: True if int(row[-1])>5000 else False,
                      "NIGHT_ACTIVITY": lambda row: True if "00:00:00"<= row[0][11:19] <= "00:06:00" else False}
 
+
+def running_tests_on_a_line(dicti,line):
+    return list(filter(lambda key:dicti[key](line) ,dicti))
