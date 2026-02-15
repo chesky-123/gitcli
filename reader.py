@@ -16,5 +16,9 @@ suspicion_checks = { "EXTERNAL_IP": lambda row: True if not row[1].strip().start
                      "NIGHT_ACTIVITY": lambda row: True if "00:00:00"<= row[0][11:19] <= "00:06:00" else False}
 
 
-def running_tests_on_a_line(dicti,line):
+def running_tests_on_a_line(line,dicti=suspicion_checks):
     return list(filter(lambda key:dicti[key](line) ,dicti))
+
+
+processing_the_entire_log=list(filter(lambda l:len(l)>=1,list(map(lambda line:running_tests_on_a_line(line),listi))))
+
