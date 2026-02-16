@@ -17,4 +17,9 @@ def returning_suspicions_with_row_details(path):
         if len(running_tests_on_a_line(row)) >= 1:
             yield (row,running_tests_on_a_line(row))
 
+def count_lines(path):
+    counti=sum([1 for line in path if len(running_tests_on_a_line(line)) >= 1])
+    return counti
+
+
 
