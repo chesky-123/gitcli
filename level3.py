@@ -1,4 +1,4 @@
-from config import *
+from level2 import *
 
 listi=list_of_pys=get_list_of_file("network_traffic.log")
 
@@ -21,4 +21,3 @@ def running_tests_on_a_line(line,dicti=suspicion_checks):
 
 
 processing_the_entire_log=list(filter(lambda l:len(l)>=1,list(map(lambda line:running_tests_on_a_line(line),listi))))
-

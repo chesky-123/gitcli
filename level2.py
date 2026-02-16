@@ -1,4 +1,4 @@
-from main import *
+from level1 import *
 
 def counting_calls_by_IP(lst:list):
     ips=[ip[1] for ip in lst]
