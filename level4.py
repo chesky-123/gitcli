@@ -14,12 +14,20 @@ def filter_lines(geni):
 
 def returning_suspicions_with_row_details(path):
     for row in path:
-        if len(running_tests_on_a_line(row)) >= 1:
-            yield (row,running_tests_on_a_line(row))
+        yield (row,running_tests_on_a_line(row))
 
 def count_lines(path):
-    counti=sum([1 for line in path if len(running_tests_on_a_line(line)) >= 1])
+    counti=sum(1 for line in path )
     return counti
 
+
+lines=open_file('network_traffic.log')
+print(next( lines))
+suspicious=filter_lines(lines)
+print(next(suspicious))
+detailed=returning_suspicions_with_row_details(suspicious)
+print(next(detailed))
+count=count_lines(detailed)
+print(f"Total suspicious: {count}")
 
 
