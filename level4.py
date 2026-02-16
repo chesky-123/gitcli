@@ -7,6 +7,10 @@ def open_file(path):
             yield lisr_of_lines
 
 
+def filter_lines(geni):
+    for row in geni:
+        if len(running_tests_on_a_line(row))>=1:
+            yield running_tests_on_a_line(row)
 
 
 
