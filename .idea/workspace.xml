@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e4e2bab6-2b3c-4eea-bfe9-d865f29d5a77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checks.py" beforeDir="false" afterPath="$PROJECT_DIR$/level4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/level2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/level1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/level3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/level4.py" beforeDir="false" afterPath="$PROJECT_DIR$/level4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +27,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.level3.executor": "Run",
     "Python.level4.executor": "Run",
     "Python.reader.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
